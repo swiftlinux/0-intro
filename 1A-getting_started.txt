@@ -1,0 +1,4 @@
+INSTALLING GUEST ADDITIONS
+1.  Install Debian Stable.
+2.  Enter the commands "apt-get update", "apt-get upgrade", and "apt-get dist-upgrade".  Make a snapshot.
+3.  Enter the command "apt-get build-essential".
