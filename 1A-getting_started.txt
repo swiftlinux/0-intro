@@ -1,4 +1,13 @@
 INSTALLING GUEST ADDITIONS
-1.  Install Debian Stable.
-2.  Enter the commands "apt-get update", "apt-get upgrade", and "apt-get dist-upgrade".  Make a snapshot.
-3.  Enter the command "apt-get build-essential".
+1.  In the guest OS, go to the VirtualBox bar. Go to Devices -> Guest Additions. This mounts the guest additions to
+the virtual CD drive.
+2.  From the guest OS, go to Devices -> Shared Folders and select the /home/(host username)/guest directory on your
+host OS. Select "Make Permanent" option but NOT the auto-mount option.
+3.  Become root in the guest OS and enter the following commands:
+mkdir /mnt/host
+mount -t vboxsf guest /mnt/host
+4. Now the /mnt/host directory in the guest OS is mirrored by the /home/(host OS username)/share directory in the host OS. If you add a test file to the /home/(host OS username)/share directory in the host OS, it should be available in the /mnt/host directory in the guest OS. (You may need to reload Nautilus to see it.)
+5. PLEASE NOTE: The file sharing capability is NOT automatic. Each time you boot up the guest OS, you'll have to
+become root in the guest OS and enter "mount -t vboxsf guest /mnt/host" in order to resume sharing files between the
+guest and host OS.
+6. Power down VirtualBox and take a snapshot.
